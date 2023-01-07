@@ -28,9 +28,9 @@ pandas 0.25 or higher
     ...
 ]
 ```
-To train and evaluate the model, you can use the `main`.py script:
+To train and evaluate the model, you can use the `medication_effectiveness_prediction.py` script:
 ```
-python main.py /path/to/patient_data.json
+python medication_effectiveness_prediction.py /path/to/patient_data.json
 ```
 
 This will output the evaluation metrics (accuracy, precision, recall, and F1 score) for the model on the test set.
