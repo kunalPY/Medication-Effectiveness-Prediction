@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.externals import joblib
 
 # Load the patient data
 # The data should be in a form such as:
@@ -62,7 +63,7 @@ param_grid = {
 }
 
 # Create the grid search object
-grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='f1_micro')
+grid_search = GridSearchCV(pipeline, param_grid, cv=5)
 
 # Fit the grid search object to the training data
 grid_search.fit(X_train, y_train)
@@ -84,3 +85,8 @@ print('Accuracy:', accuracy)
 print('Precision:', precision)
 print('Recall:', recall)
 print('F1 score:', f1)
+
+# Save the model to a file
+model_file = 'medication_effectiveness_model.pkl'
+joblib.dump(best_model, model_file)
+
